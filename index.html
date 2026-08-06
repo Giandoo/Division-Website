@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Division RP</title>
+<meta name="description" content="Division RP, il server FiveM fantasy roleplay. Entra nelle Terre Perdute, forgia il tuo destino e scrivi la tua leggenda.">
+<meta name="theme-color" content="#05121b">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Division RP — Fantasy Roleplay">
+<meta property="og:description" content="Entra nelle Terre Perdute. Forgia il tuo destino.">
+<meta property="og:image" content="/assets/img/og-cover.jpg">
+
+<link rel="icon" href="/assets/img/logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="is-loading">
+
+<!-- ══════════════ SFONDO / SLIDE ══════════════ -->
+<div class="stage" id="stage">
+  <div class="stage__slides">
+
+    <div class="bg is-active"
+         data-index="0"
+         style="--img:url('/assets/img/slides/slide-1.jpg');
+                --fallback:radial-gradient(120% 85% at 50% 15%, #3a86ad 0%, #17516f 38%, #0a2635 70%, #050f16 100%);"></div>
+
+    <div class="bg"
+         data-index="1"
+         style="--img:url('/assets/img/slides/slide-2.jpg');
+                --fallback:radial-gradient(110% 80% at 70% 25%, #4a7fa6 0%, #1d4a68 40%, #0b2130 72%, #040d14 100%);"></div>
+
+    <div class="bg"
+         data-index="2"
+         style="--img:url('/assets/img/slides/slide-3.jpg');
+                --fallback:radial-gradient(120% 90% at 30% 20%, #2f7f9c 0%, #14465f 42%, #08202e 74%, #040e15 100%);"></div>
+
+  </div>
+  <div class="stage__scrim" aria-hidden="true"></div>
+  <div class="stage__grain" aria-hidden="true"></div>
+</div>
+
+
+<!-- ══════════════ NAVBAR ══════════════ -->
+<header class="nav">
+  <nav class="nav__links" data-reveal aria-label="Navigazione principale">
+    <a href="#" class="nav__link is-current">Home</a>
+    <a href="#media" class="nav__link" data-open-media>Media</a>
+    <a href="mondo.html" class="nav__link">Il Mondo</a>
+  </nav>
+
+  <a href="#" class="logo" data-reveal aria-label="Division RP, torna alla home">
+    <span class="logo__line" aria-hidden="true"></span>
+    <img class="logo__mark" src="/assets/img/logo.png" alt="Division RP" width="68" height="68">
+    <span class="logo__line" aria-hidden="true"></span>
+  </a>
+
+  <div class="nav__actions" data-reveal>
+    <a href="#" class="nav-discord" data-social="discord" aria-label="Unisciti al Discord">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.3 5.4A16.5 16.5 0 0 0 15.2 4l-.3.6a12.6 12.6 0 0 1 3.7 1.9 15.6 15.6 0 0 0-13.2 0 12.6 12.6 0 0 1 3.7-1.9L8.8 4a16.5 16.5 0 0 0-4.1 1.4C2.1 9.3 1.4 13.1 1.7 16.8a16.7 16.7 0 0 0 5.1 2.6l1.1-1.7a10.8 10.8 0 0 1-1.7-.8l.4-.3a11.9 11.9 0 0 0 10.8 0l.4.3a10.8 10.8 0 0 1-1.7.8l1.1 1.7a16.7 16.7 0 0 0 5.1-2.6c.4-4.3-.7-8.1-3-11.4ZM8.6 14.6c-1 0-1.8-.9-1.8-2.1s.8-2.1 1.8-2.1 1.9.9 1.8 2.1c0 1.2-.8 2.1-1.8 2.1Zm6.8 0c-1 0-1.8-.9-1.8-2.1s.8-2.1 1.8-2.1 1.9.9 1.8 2.1c0 1.2-.8 2.1-1.8 2.1Z"/></svg>
+    </a>
+
+    <a href="#" class="btn btn--ghost" data-connect>Gioca ora</a>
+    <button class="nav__burger" type="button" aria-label="Apri menu" aria-expanded="false" data-burger>
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+
+<!-- ══════════════ HERO ══════════════ -->
+<main class="hero">
+
+  <button class="arrow arrow--prev" type="button" aria-label="Slide precedente" data-prev>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 7 12l8 8"/></svg>
+  </button>
+
+  <span class="edge edge--left" data-edge-prev aria-hidden="true"></span>
+
+  <div class="hero__inner">
+    <div class="slides" data-slides>
+
+      <section class="slide is-active" data-slide="0" data-label="Il Risveglio">
+        <h1 class="slide__title" data-reveal>Una nuova era</h1>
+        <p class="slide__text" data-reveal>
+          Le antiche rune tornano a brillare e il velo tra i mondi si assottiglia.
+          Scegli il tuo cammino, stringi alleanze e scopri cosa si nasconde
+          oltre i confini delle Terre Perdute.
+        </p>
+        <a href="#" class="btn btn--ghost" data-connect data-reveal>Inizia il viaggio</a>
+      </section>
+
+      <section class="slide" data-slide="1" data-label="Le Terre Perdute" hidden>
+        <h1 class="slide__title">Oltre il velo</h1>
+        <p class="slide__text">
+          Foreste che sussurrano, rovine sommerse e creature che nessuno ha mai
+          osato nominare. Ogni regione custodisce un segreto e ogni segreto
+          ha un prezzo da pagare.
+        </p>
+        <a href="#" class="btn btn--ghost" data-connect>Esplora il regno</a>
+      </section>
+
+      <section class="slide" data-slide="2" data-label="Il Concilio" hidden>
+        <h1 class="slide__title">Forgia il destino</h1>
+        <p class="slide__text">
+          Mercanti, cacciatori, arcanisti e fuorilegge. Entra in una gilda,
+          conquista influenza nel Concilio e lascia il tuo nome inciso
+          nella storia della città.
+        </p>
+        <a href="#" class="btn btn--ghost" data-connect>Unisciti a una gilda</a>
+      </section>
+
+    </div>
+  </div>
+
+  <span class="edge edge--right" data-edge-next aria-hidden="true"></span>
+
+  <button class="arrow arrow--next" type="button" aria-label="Slide successiva" data-next>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4l8 8-8 8"/></svg>
+  </button>
+</main>
+
+
+<!-- ══════════════ FAQ ══════════════ -->
+<section class="faq" id="faq">
+  <img class="faq__portrait faq__portrait--left" data-reveal src="/assets/img/faq-character.png" alt="" width="500" height="500">
+  <img class="faq__portrait faq__portrait--right" data-reveal src="/assets/img/faq-character-2.png" alt="" width="503" height="496">
+  <img class="faq__callout" data-reveal src="/assets/img/faq-callout.png" alt="PS. lui è Drappino" width="760" height="231">
+
+  <div class="faq__inner">
+    <span class="faq__kicker" data-reveal>Hai dubbi?</span>
+    <h2 class="faq__title" data-reveal>Domande frequenti</h2>
+
+    <div class="faq__list" data-faq>
+
+      <div class="faq__item is-open" data-reveal>
+        <button class="faq__q" type="button" aria-expanded="true">
+          Come entro nel server?
+          <svg class="faq__chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__a">
+          <div>
+            <p>Ti serve GTA V e <a href="https://fivem.net" target="_blank" rel="noopener">FiveM</a> installati.
+            Premi "Gioca ora" in qualsiasi punto del sito: si apre direttamente il client
+            FiveM già puntato sul nostro server. In alternativa, unisciti al nostro Discord
+            e usa il comando di connessione nel canale dedicato.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq__item" data-reveal>
+        <button class="faq__q" type="button" aria-expanded="false">
+          Il server è gratuito?
+          <svg class="faq__chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__a">
+          <div>
+            <p>Sì, entrare e giocare è completamente gratuito. Ti servono solo una copia
+            legittima di GTA V e il client FiveM, entrambi gratuiti da installare.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq__item" data-reveal>
+        <button class="faq__q" type="button" aria-expanded="false">
+          Serve la whitelist per entrare?
+          <svg class="faq__chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__a">
+          <div>
+            <p>Le regole di accesso e l'eventuale procedura di whitelist sono spiegate nel
+            canale regole del nostro Discord: è il primo posto da controllare prima di
+            entrare in città.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq__item" data-reveal>
+        <button class="faq__q" type="button" aria-expanded="false">
+          Come funziona l'ambientazione fantasy?
+          <svg class="faq__chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__a">
+          <div>
+            <p>Division RP si svolge nelle Terre Perdute: niente auto o telefoni, ma magia,
+            gilde, creature e un Concilio che governa gli equilibri di potere. Il
+            regolamento completo su lore e roleplay è nel Discord.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq__item" data-reveal>
+        <button class="faq__q" type="button" aria-expanded="false">
+          Posso creare o unirmi a una gilda?
+          <svg class="faq__chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__a">
+          <div>
+            <p>Sì. Puoi unirti a una gilda già attiva in città oppure, una volta radicato
+            nel mondo di gioco, fare richiesta per fondarne una nuova tramite lo staff.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq__item" data-reveal>
+        <button class="faq__q" type="button" aria-expanded="false">
+          C'è uno shop con oggetti o valuta?
+          <svg class="faq__chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__a">
+          <div>
+            <p>È in lavorazione. Per ora l'economia vive interamente dentro le Terre
+            Perdute: seguici su Discord per essere avvisato appena lo shop apre.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq__item" data-reveal>
+        <button class="faq__q" type="button" aria-expanded="false">
+          Come contatto lo staff o segnalo un problema?
+          <svg class="faq__chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__a">
+          <div>
+            <p>Apri un ticket nel canale supporto del Discord: lo staff risponde lì per
+            segnalazioni, bug e problemi di accesso.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="faq__disclaimer" data-reveal>Division Roleplay è un progetto indipendente e non è affiliato a Rockstar Games o Take-Two Interactive.</p>
+  </div>
+</section>
+
+
+<!-- ══════════════ BARRA INFERIORE ══════════════ -->
+<footer class="dock">
+  <div class="dock__legal">
+    <a href="#">Legal</a>
+    <a href="#">Privacy Policy</a>
+  </div>
+
+  <img class="dock__wordmark" src="/assets/img/footer-wordmark.png" alt="Division Roleplay" width="1042" height="80">
+
+  <div class="dock__social">
+    <a href="#" data-social="discord" aria-label="Discord">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.3 5.4A16.5 16.5 0 0 0 15.2 4l-.3.6a12.6 12.6 0 0 1 3.7 1.9 15.6 15.6 0 0 0-13.2 0 12.6 12.6 0 0 1 3.7-1.9L8.8 4a16.5 16.5 0 0 0-4.1 1.4C2.1 9.3 1.4 13.1 1.7 16.8a16.7 16.7 0 0 0 5.1 2.6l1.1-1.7a10.8 10.8 0 0 1-1.7-.8l.4-.3a11.9 11.9 0 0 0 10.8 0l.4.3a10.8 10.8 0 0 1-1.7.8l1.1 1.7a16.7 16.7 0 0 0 5.1-2.6c.4-4.3-.7-8.1-3-11.4ZM8.6 14.6c-1 0-1.8-.9-1.8-2.1s.8-2.1 1.8-2.1 1.9.9 1.8 2.1c0 1.2-.8 2.1-1.8 2.1Zm6.8 0c-1 0-1.8-.9-1.8-2.1s.8-2.1 1.8-2.1 1.9.9 1.8 2.1c0 1.2-.8 2.1-1.8 2.1Z"/></svg>
+    </a>
+    <a href="#" data-social="youtube" aria-label="YouTube">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.5 7.2a2.7 2.7 0 0 0-1.9-1.9C18.9 4.8 12 4.8 12 4.8s-6.9 0-8.6.5A2.7 2.7 0 0 0 1.5 7.2 28.4 28.4 0 0 0 1 12a28.4 28.4 0 0 0 .5 4.8 2.7 2.7 0 0 0 1.9 1.9c1.7.5 8.6.5 8.6.5s6.9 0 8.6-.5a2.7 2.7 0 0 0 1.9-1.9A28.4 28.4 0 0 0 23 12a28.4 28.4 0 0 0-.5-4.8ZM9.8 15.3V8.7l5.7 3.3Z"/></svg>
+    </a>
+    <a href="#" data-social="tiktok" aria-label="TikTok">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 3h-3v13.1a2.6 2.6 0 1 1-2-2.5v-3a5.6 5.6 0 1 0 5 5.5V9.6a7 7 0 0 0 4 1.3V8a4.2 4.2 0 0 1-4-4Z"/></svg>
+    </a>
+  </div>
+</footer>
+
+
+<!-- ══════════════ MENU MOBILE ══════════════ -->
+<div class="drawer" data-drawer hidden>
+  <nav class="drawer__nav" aria-label="Menu mobile">
+    <a href="#">Home</a>
+    <a href="#" data-open-media>Media</a>
+    <a href="mondo.html">Il Mondo</a>
+
+    <a href="#" class="btn-discord btn-discord--drawer" data-social="discord">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.3 5.4A16.5 16.5 0 0 0 15.2 4l-.3.6a12.6 12.6 0 0 1 3.7 1.9 15.6 15.6 0 0 0-13.2 0 12.6 12.6 0 0 1 3.7-1.9L8.8 4a16.5 16.5 0 0 0-4.1 1.4C2.1 9.3 1.4 13.1 1.7 16.8a16.7 16.7 0 0 0 5.1 2.6l1.1-1.7a10.8 10.8 0 0 1-1.7-.8l.4-.3a11.9 11.9 0 0 0 10.8 0l.4.3a10.8 10.8 0 0 1-1.7.8l1.1 1.7a16.7 16.7 0 0 0 5.1-2.6c.4-4.3-.7-8.1-3-11.4ZM8.6 14.6c-1 0-1.8-.9-1.8-2.1s.8-2.1 1.8-2.1 1.9.9 1.8 2.1c0 1.2-.8 2.1-1.8 2.1Zm6.8 0c-1 0-1.8-.9-1.8-2.1s.8-2.1 1.8-2.1 1.9.9 1.8 2.1c0 1.2-.8 2.1-1.8 2.1Z"/></svg>
+      Discord
+    </a>
+
+    <a href="#" class="btn btn--primary" data-connect>Gioca ora</a>
+  </nav>
+</div>
+
+
+<!-- ══════════════ MODALE MEDIA (LINKTREE) ══════════════ -->
+<div class="modal" data-modal hidden>
+  <div class="modal__backdrop" data-modal-close></div>
+  <div class="modal__box modal__box--linktree" role="dialog" aria-modal="true" aria-label="I nostri canali">
+    <button class="modal__close" type="button" aria-label="Chiudi" data-modal-close>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+
+    <div class="linktree">
+      <img class="linktree__logo" src="/assets/img/logo.png" alt="" width="56" height="56">
+      <span class="linktree__kicker">Seguici ovunque</span>
+      <h3 class="linktree__title">Division RP</h3>
+
+      <div class="linktree__links">
+        <a href="#" class="linktree__link" data-social="tiktok" data-reveal>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 3h-3v13.1a2.6 2.6 0 1 1-2-2.5v-3a5.6 5.6 0 1 0 5 5.5V9.6a7 7 0 0 0 4 1.3V8a4.2 4.2 0 0 1-4-4Z"/></svg>
+          TikTok
+        </a>
+        <a href="#" class="linktree__link" data-social="discord" data-reveal>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.3 5.4A16.5 16.5 0 0 0 15.2 4l-.3.6a12.6 12.6 0 0 1 3.7 1.9 15.6 15.6 0 0 0-13.2 0 12.6 12.6 0 0 1 3.7-1.9L8.8 4a16.5 16.5 0 0 0-4.1 1.4C2.1 9.3 1.4 13.1 1.7 16.8a16.7 16.7 0 0 0 5.1 2.6l1.1-1.7a10.8 10.8 0 0 1-1.7-.8l.4-.3a11.9 11.9 0 0 0 10.8 0l.4.3a10.8 10.8 0 0 1-1.7.8l1.1 1.7a16.7 16.7 0 0 0 5.1-2.6c.4-4.3-.7-8.1-3-11.4ZM8.6 14.6c-1 0-1.8-.9-1.8-2.1s.8-2.1 1.8-2.1 1.9.9 1.8 2.1c0 1.2-.8 2.1-1.8 2.1Zm6.8 0c-1 0-1.8-.9-1.8-2.1s.8-2.1 1.8-2.1 1.9.9 1.8 2.1c0 1.2-.8 2.1-1.8 2.1Z"/></svg>
+          Discord
+        </a>
+        <a href="#" class="linktree__link" data-social="youtube" data-reveal>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.5 7.2a2.7 2.7 0 0 0-1.9-1.9C18.9 4.8 12 4.8 12 4.8s-6.9 0-8.6.5A2.7 2.7 0 0 0 1.5 7.2 28.4 28.4 0 0 0 1 12a28.4 28.4 0 0 0 .5 4.8 2.7 2.7 0 0 0 1.9 1.9c1.7.5 8.6.5 8.6.5s6.9 0 8.6-.5a2.7 2.7 0 0 0 1.9-1.9A28.4 28.4 0 0 0 23 12a28.4 28.4 0 0 0-.5-4.8ZM9.8 15.3V8.7l5.7 3.3Z"/></svg>
+          YouTube
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

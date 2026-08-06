@@ -1,0 +1,6 @@
+# Raw upload sources (non processati, non usati dal sito live)
+assets/img/originali/
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
