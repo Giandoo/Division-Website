@@ -332,6 +332,139 @@
   };
 
 
+  /* ═══════════ PAGINA LUOGO (tab attività/ambiente/fauna/...) ═══════════ */
+
+  var LocationTabs = {
+    init: function () {
+      var tabs = $$("[data-tab]");
+      var panels = $$("[data-tab-panel]");
+      if (!tabs.length) return;
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener("click", function () {
+          tabs.forEach(function (t) { t.classList.remove("is-active"); });
+          tab.classList.add("is-active");
+
+          var target = tab.dataset.tab;
+          panels.forEach(function (p) {
+            p.hidden = p.dataset.tabPanel !== target;
+          });
+        });
+      });
+    }
+  };
+
+
+  /* ═══════════ LEGGENDE (reveal a macchina da scrivere) ═══════════ */
+
+  var Legends = {
+    timer: null,
+
+    init: function () {
+      this.btns  = $$("[data-legend]");
+      this.media = $("[data-legend-media]");
+      this.textEl = $("[data-legend-text]");
+      this.figures = $$("[data-legend-figure]");
+      if (!this.btns.length || !this.textEl) return;
+
+      var self = this;
+      this.btns.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          self.btns.forEach(function (b) { b.classList.remove("is-active"); });
+          btn.classList.add("is-active");
+          self.type(btn.dataset.legend);
+        });
+      });
+    },
+
+    /* rivela il testo della leggenda un carattere alla volta */
+    type: function (key) {
+      var source = $('[data-legend-source="' + key + '"]');
+      if (!source) return;
+
+      clearInterval(this.timer);
+
+      if (this.media) this.media.hidden = true;
+      this.textEl.hidden = false;
+      this.textEl.innerHTML = "";
+
+      this.figures.forEach(function (fig) { fig.classList.toggle("is-visible", fig.dataset.legendFigure === key); });
+
+      var paragraphs = $$("p", source).map(function (p) { return p.textContent; });
+      var pIndex = 0, cIndex = 0, currentP = null;
+
+      var cursor = document.createElement("span");
+      cursor.className = "legends__cursor";
+      cursor.textContent = "▍";
+
+      var self = this;
+      this.timer = setInterval(function () {
+        if (pIndex >= paragraphs.length) {
+          clearInterval(self.timer);
+          cursor.remove();
+          return;
+        }
+        if (!currentP) {
+          currentP = document.createElement("p");
+          self.textEl.appendChild(currentP);
+        }
+        var text = paragraphs[pIndex];
+        cIndex++;
+        currentP.textContent = text.slice(0, cIndex);
+        currentP.appendChild(cursor);
+
+        if (cIndex >= text.length) {
+          pIndex++;
+          cIndex = 0;
+          currentP = null;
+        }
+      }, 14);
+    }
+  };
+
+
+  /* ═══════════ MAPPA (puntini interattivi) ═══════════ */
+
+  var MapPins = {
+    init: function () {
+      this.pins = $$("[data-map-pin]");
+      this.textEl = $("[data-map-text]");
+      if (!this.pins.length || !this.textEl) return;
+
+      var self = this;
+      this.pins.forEach(function (pin) {
+        pin.addEventListener("click", function () {
+          if (pin.classList.contains("is-active")) return;
+          self.pins.forEach(function (p) { p.classList.remove("is-active"); });
+          pin.classList.add("is-active");
+          self.show(pin.dataset.mapPin);
+        });
+      });
+    },
+
+    /* dissolvenza in uscita, cambio contenuto, dissolvenza in entrata */
+    show: function (key) {
+      var source = $('[data-map-source="' + key + '"]');
+      if (!source) return;
+
+      var self = this;
+      this.textEl.classList.add("is-leaving");
+
+      setTimeout(function () {
+        self.textEl.innerHTML = source.innerHTML;
+        self.textEl.classList.remove("is-leaving");
+        self.textEl.classList.add("is-entering");
+
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            self.textEl.classList.remove("is-entering");
+          });
+        });
+      }, 320);
+    }
+  };
+
+
   /* ═══════════ FAQ ═══════════ */
 
   var Faq = {
@@ -536,6 +669,9 @@
     Slider.init();
     Status.init();
     World.init();
+    LocationTabs.init();
+    Legends.init();
+    MapPins.init();
     Faq.init();
     Reveal.init();
     Drawer.init();
