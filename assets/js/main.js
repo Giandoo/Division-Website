@@ -362,7 +362,6 @@
 
     init: function () {
       this.btns  = $$("[data-legend]");
-      this.media = $("[data-legend-media]");
       this.textEl = $("[data-legend-text]");
       this.figures = $$("[data-legend-figure]");
       if (!this.btns.length || !this.textEl) return;
@@ -375,6 +374,9 @@
           self.type(btn.dataset.legend);
         });
       });
+
+      /* mostra da subito la prima leggenda invece di un riquadro vuoto */
+      this.type(this.btns[0].dataset.legend);
     },
 
     /* rivela il testo della leggenda un carattere alla volta */
@@ -384,8 +386,6 @@
 
       clearInterval(this.timer);
 
-      if (this.media) this.media.hidden = true;
-      this.textEl.hidden = false;
       this.textEl.innerHTML = "";
 
       this.figures.forEach(function (fig) { fig.classList.toggle("is-visible", fig.dataset.legendFigure === key); });

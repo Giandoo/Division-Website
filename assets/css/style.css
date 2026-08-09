@@ -610,13 +610,6 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 
 .legends__stage{ position:relative; }
 
-.legends__media{
-  aspect-ratio:3 / 4;
-  max-width:360px;
-  border-radius:4px;
-  background:linear-gradient(160deg, #0d2333 0%, #071722 55%, #040d14 100%);
-}
-
 .legends__text{ min-height:260px; }
 
 .legends__text p{
@@ -635,7 +628,9 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 
 @media (max-width:860px){
   .legends{ grid-template-columns:1fr; }
-  .legends__media{ max-width:none; }
+  /* il bleed decorativo è calibrato sull'ampio pannello desktop: impilato
+     su una colonna sarebbe più alto dello schermo e coprirebbe testo/bottoni */
+  .legends__figure{ display:none; }
 }
 
 /* ── tab Mappa: mappa grande a sinistra ── */
