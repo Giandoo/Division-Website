@@ -1,10 +1,7 @@
-/* ═══════════════════════════════════════════════════════
-   DIVISION — Fantasy Roleplay
-   Palette ciano cinematografica · layout single-screen
-   ═══════════════════════════════════════════════════════ */
+
 
 :root{
-  /* colori */
+
   --c-ink:        #05121b;
   --c-ink-deep:   #030a10;
   --c-cyan:       #2ba6e8;
@@ -14,20 +11,17 @@
   --c-muted:      #a9c4d4;
   --c-line:       rgba(255,255,255,.14);
 
-  /* misure */
   --gutter:       clamp(20px, 4vw, 64px);
   --dock-h:       92px;
   --nav-h:        88px;
   --radius:       10px;
 
-  /* motion */
   --ease:         cubic-bezier(.22,.61,.36,1);
   --ease-out:     cubic-bezier(.16,1,.3,1);
 }
 
 *,*::before,*::after{ box-sizing:border-box; }
 
-/* deve battere i display:grid/flex dei componenti nascosti */
 [hidden]{ display:none !important; }
 
 html,body{ height:100%; }
@@ -55,9 +49,6 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   border-radius:4px;
 }
 
-
-/* ═══════════ SFONDO / SLIDE ═══════════ */
-
 .stage{
   position:fixed;
   inset:0;
@@ -71,7 +62,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 .bg{
   position:absolute;
   inset:0;
-  /* se slide-N.jpg manca, il browser dipinge il gradient sottostante */
+
   background-image:var(--img), var(--fallback);
   background-size:cover, cover;
   background-position:center, center;
@@ -86,7 +77,6 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   transform:scale(1);
 }
 
-/* vignettatura cinematografica */
 .stage__scrim{
   position:absolute;
   inset:0;
@@ -111,9 +101,6 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   60%{ transform:translate(-2%,-2%); }
   80%{ transform:translate(3%,1%); }
 }
-
-
-/* ═══════════ NAVBAR ═══════════ */
 
 .nav{
   position:fixed;
@@ -172,7 +159,6 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 .nav__link:hover::after,
 .nav__link.is-current::after{ transform:scaleX(1); }
 
-/* logo centrale: emblema con due linee che convergono verso il centro */
 .logo{
   display:flex;
   align-items:center;
@@ -205,10 +191,6 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   gap:14px;
 }
 
-
-/* ═══════════ PULSANTE DISCORD ═══════════ */
-
-/* icona compatta in navbar, a sinistra di "Gioca ora" */
 .nav-discord{
   display:flex;
   align-items:center;
@@ -222,7 +204,6 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   color:#fff;
 }
 
-/* versione con etichetta, usata nel drawer mobile */
 .btn-discord{
   display:flex;
   align-items:center;
@@ -247,11 +228,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   transform:translateY(-2px);
 }
 
-/* variante nel drawer mobile: link a piena larghezza come il resto del menu */
 .btn-discord--drawer{ justify-content:center; width:100%; height:48px; }
-
-
-/* ═══════════ BOTTONI ═══════════ */
 
 .btn{
   display:inline-flex;
@@ -299,9 +276,6 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 }
 .btn--primary:active{ transform:translateY(-1px); }
 
-
-/* ═══════════ HERO ═══════════ */
-
 .hero{
   position:relative;
   z-index:20;
@@ -320,7 +294,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 
 .slides{
   position:relative;
-  display:grid;   /* le slide non nascoste si sovrappongono nella stessa cella */
+  display:grid;
 }
 
 .slide{
@@ -331,7 +305,6 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 }
 .slide[hidden]{ display:none; }
 
-/* fade in/out al cambio slide (frecce, card, swipe, tastiera) */
 .slide.is-in-fwd{ animation:slideFadeIn .7s var(--ease-out) both; }
 .slide.is-in-bwd{ animation:slideFadeIn .7s var(--ease-out) both; }
 .slide.is-out-fwd{ animation:slideFadeOut .5s var(--ease) both; }
@@ -368,7 +341,6 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   text-shadow:0 2px 14px rgba(0,0,0,.7);
 }
 
-/* animazione d'ingresso */
 .slide.is-entering .slide__title,
 .slide.is-entering .slide__text,
 .slide.is-entering .btn{
@@ -381,9 +353,6 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   from{ opacity:0; transform:translateY(34px); filter:blur(6px); }
   to  { opacity:1; transform:none;             filter:blur(0);  }
 }
-
-
-/* ═══════════ FRECCE + LABEL LATERALI ═══════════ */
 
 .arrow{
   position:absolute;
@@ -410,7 +379,6 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 .arrow--prev:hover{ transform:translate(-5px,-50%); }
 .arrow--next:hover{ transform:translate(5px,-50%); }
 
-/* etichette slide prec./succ., come "FATHER & SON" / "NORSE UNIVERSE" */
 .edge{
   position:absolute;
   top:50%;
@@ -427,10 +395,6 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 }
 .edge--left { left:calc(var(--gutter) + 46px); }
 .edge--right{ right:calc(var(--gutter) + 46px); }
-
-
-
-/* ═══════════ PAGINA LUOGO (es. syldarin.html) — in lavorazione ═══════════ */
 
 .location{
   position:relative;
@@ -487,7 +451,6 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   padding-top:clamp(40px, 6vw, 64px);
 }
 
-/* ── tab Storia: immagini a sinistra, testo amplificato a destra ── */
 .story{
   display:grid;
   grid-template-columns:minmax(0, .85fr) minmax(0, 1fr);
@@ -552,7 +515,6 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   .story__media{ aspect-ratio:16 / 10; }
 }
 
-/* ── tab Leggende: bottoni a sinistra, immagine/testo a destra ── */
 .legends{
   display:grid;
   grid-template-columns:minmax(0, .55fr) minmax(0, 1fr);
@@ -628,12 +590,10 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 
 @media (max-width:860px){
   .legends{ grid-template-columns:1fr; }
-  /* il bleed decorativo è calibrato sull'ampio pannello desktop: impilato
-     su una colonna sarebbe più alto dello schermo e coprirebbe testo/bottoni */
+
   .legends__figure{ display:none; }
 }
 
-/* ── tab Mappa: mappa grande a sinistra ── */
 .map{
   display:grid;
   grid-template-columns:minmax(0, 1.15fr) minmax(0, .85fr);
@@ -762,9 +722,6 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   .map{ grid-template-columns:1fr; }
 }
 
-
-/* ═══════════ IL MONDO (pagina a sé, mondo.html) ═══════════ */
-
 .world{
   position:relative;
   z-index:1;
@@ -815,7 +772,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 .world__track{
   --card-w:clamp(230px, 25vw, 340px);
   display:flex;
-  min-width:0;   /* senza questo, i flex-item non si restringono sotto la loro larghezza di contenuto e il carosello sfonda il layout */
+  min-width:0;
   gap:24px;
   overflow-x:auto;
   scroll-snap-type:x mandatory;
@@ -872,8 +829,6 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   filter:brightness(.72);
 }
 
-/* luoghi non ancora sbloccati: il "contenuto" (per ora il gradient, poi la
-   foto del luogo) resta sfocato dietro un lucchetto sempre nitido */
 .world__card-bg{
   position:absolute;
   inset:-10px;
@@ -973,26 +928,17 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   .world__arrow{ display:none; }
 }
 
-
-
-/* ═══════════ FAQ ═══════════ */
-
 .faq{
-  position:relative;   /* deve dipingere sopra lo sfondo fisso .stage durante lo scroll */
+  position:relative;
   z-index:1;
   padding:clamp(72px, 10vw, 120px) var(--gutter) clamp(90px, 11vw, 140px);
-  /* in alto lo sfondo è trasparente: l'immagine dell'hero (fissa dietro) trapela
-     sfocata grazie al backdrop-filter, poi si fonde nel nero verso il basso.
-     sotto a tutto, il paesaggio caricato: velato da un fondo scuro uniforme
-     e dalle stesse sfumature, così resta un accenno "un po' trasparente" e
-     non compete con il testo. */
+
   background:
     linear-gradient(rgba(3,10,16,.32), rgba(3,10,16,.32)),
     radial-gradient(60% 45% at 50% 0%, rgba(43,166,232,.1) 0%, rgba(43,166,232,0) 60%),
     linear-gradient(to bottom, rgba(3,10,16,.5) 0%, rgba(3,10,16,.82) 550px, var(--c-ink) 950px),
     url('/assets/img/faq-bg.jpg');
-  /* "cover" su una sezione altissima zoomava troppo l'immagine: qui la teniamo
-     alla sua scala naturale (larghezza piena, altezza proporzionata) */
+
   background-size:auto, auto, auto, 100% auto;
   background-position:center, center, center, center top;
   background-repeat:no-repeat;
@@ -1002,12 +948,11 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 
 .faq__inner{
   position:relative;
-  z-index:1;            /* sopra al ritratto decorativo */
+  z-index:1;
   max-width:740px;
   margin:0 auto;
 }
 
-/* personaggi decorativi ai lati della sezione */
 .faq__portrait{
   position:absolute;
   height:auto;
@@ -1024,11 +969,10 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 
 .faq__portrait--right{
   right:clamp(0px, 2vw, 24px);
-  bottom:clamp(60px, 9vw, 145px);   /* un po' più in alto del personaggio a sinistra */
+  bottom:clamp(60px, 9vw, 145px);
   width:clamp(220px, 19vw, 360px);
 }
 
-/* scritta "PS. lui è Drappino" con freccia: nero=trasparente grazie al blend screen */
 .faq__callout{
   position:absolute;
   right:clamp(110px, 13vw, 250px);
@@ -1099,7 +1043,6 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 }
 .faq__item.is-open .faq__chevron{ transform:rotate(180deg); color:var(--c-cyan-hi); }
 
-/* accordion senza JS che calcola altezze: grid-template-rows 0fr → 1fr */
 .faq__a{
   display:grid;
   grid-template-rows:0fr;
@@ -1140,16 +1083,13 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 }
 
 @media (max-width:1360px){
-  /* sotto questa soglia rischierebbe di sovrapporsi al testo centrale */
+
   .faq__portrait, .faq__callout{ display:none; }
 }
 
 @media (max-width:600px){
   .faq__q{ font-size:14px; padding:18px 2px; gap:14px; }
 }
-
-
-/* ═══════════ BARRA INFERIORE ═══════════ */
 
 .dock{
   position:fixed;
@@ -1160,9 +1100,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   display:flex;
   align-items:center;
   gap:clamp(16px, 3vw, 44px);
-  /* sfoca ciò che scorre sotto la barra, come già fatto per la nav in alto:
-     prima il bordo superiore era solo al 50% di opacità e lasciava "trasparire"
-     il contenuto sottostante durante lo scroll */
+
   background:linear-gradient(to top, var(--c-ink-deep) 55%, rgba(3,10,16,.75) 100%);
   backdrop-filter:blur(14px);
   -webkit-backdrop-filter:blur(14px);
@@ -1184,7 +1122,6 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 }
 .dock__legal a:hover{ color:#fff; }
 
-/* wordmark centrato nella barra, tra i link legal e le icone social */
 .dock__wordmark{
   position:absolute;
   left:50%;
@@ -1195,9 +1132,6 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   opacity:.2;
   pointer-events:none;
 }
-
-
-/* ═══════════ STATUS SERVER LIVE ═══════════ */
 
 .status{
   margin-left:auto;
@@ -1304,9 +1238,6 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 .dock__social svg{ width:100%; height:100%; fill:currentColor; }
 .dock__social a:hover{ color:var(--c-cyan-hi); transform:translateY(-2px); }
 
-
-/* ═══════════ MENU MOBILE ═══════════ */
-
 .nav__burger{
   display:none;
   width:34px; height:34px;
@@ -1358,9 +1289,6 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 }
 .drawer__nav .btn{ margin-top:14px; }
 
-
-/* ═══════════ MODALE MEDIA (LINKTREE) ═══════════ */
-
 .modal{
   position:fixed;
   inset:0;
@@ -1394,7 +1322,6 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 }
 .modal.is-open .modal__box{ transform:scale(1); }
 
-/* card Linktree: niente più 16:9, altezza dettata dal contenuto */
 .modal__box--linktree{
   width:min(400px, 100%);
   aspect-ratio:auto;
@@ -1467,7 +1394,6 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   transform:translateY(-2px);
 }
 
-/* cascata leggera fra i pulsanti quando la modale si apre */
 .linktree__links [data-reveal]:nth-child(1){ transition-delay:.05s; }
 .linktree__links [data-reveal]:nth-child(2){ transition-delay:.12s; }
 .linktree__links [data-reveal]:nth-child(3){ transition-delay:.19s; }
@@ -1491,9 +1417,6 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 }
 .modal__close:hover{ background:var(--c-cyan); transform:rotate(90deg); }
 
-
-/* ═══════════ RESPONSIVE ═══════════ */
-
 @media (max-width:1200px){
   .status__join{ display:none; }
 }
@@ -1510,7 +1433,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   .nav__links{ display:none; }
   .nav__burger{ display:flex; }
   .nav .btn--ghost{ display:none; }
-  .nav .nav-discord{ display:none; }   /* su mobile il pulsante Discord vive nel drawer */
+  .nav .nav-discord{ display:none; }
   .logo{ justify-self:start; width:auto; gap:0; }
   .logo__line{ display:none; }
   .logo__mark{ width:36px; height:36px; }
@@ -1541,12 +1464,6 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   .dock__social{ display:none; }
 }
 
-
-/* ═══════════ REVEAL ALLO SCROLL ═══════════ */
-/* la classe sul body è aggiunta via JS solo se prefers-reduced-motion è "no
-   preference": senza JS o con motion ridotto, il contenuto resta semplicemente
-   visibile (nessun opacity:0 di default) */
-
 body.can-reveal [data-reveal]{
   opacity:0;
   transform:translateY(30px);
@@ -1557,13 +1474,8 @@ body.can-reveal [data-reveal].is-revealed{
   transform:none;
 }
 
-
-/* ═══════════ ACCESSIBILITÀ MOTION ═══════════ */
-
 @media (prefers-reduced-motion:reduce){
-  /* riduce solo gli effetti davvero "grandi" (parallasse al mouse, grain) —
-     il fade delle slide/sfondo è una semplice dissolvenza di opacità, non il
-     tipo di movimento che dà fastidio, quindi resta attivo */
+
   .stage, .stage__grain{
     animation-duration:.01ms !important;
     animation-iteration-count:1 !important;

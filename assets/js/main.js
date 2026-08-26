@@ -1,7 +1,4 @@
-/* ═══════════════════════════════════════════════════════
-   DIVISION — logica di pagina
-   Nessuna dipendenza esterna.
-   ═══════════════════════════════════════════════════════ */
+
 
 (function () {
   "use strict";
@@ -11,9 +8,6 @@
   var $$ = function (sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); };
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-
-  /* ═══════════ SLIDER ═══════════ */
 
   var Slider = {
     index: 0,
@@ -43,7 +37,6 @@
       this.autoplay();
     },
 
-    /* swipe su touch / trascinamento mouse */
     bindSwipe: function () {
       var hero = $(".hero");
       var startX = null;
@@ -66,7 +59,6 @@
       hero.addEventListener("pointercancel", function () { startX = null; });
     },
 
-    /* direzione più breve fra due indici su un anello circolare */
     shortestDir: function (from, to, total) {
       var diff = ((to - from) % total + total) % total;
       return diff <= total / 2 ? 1 : -1;
@@ -75,17 +67,16 @@
     go: function (next, userAction, dir) {
       if (this.animating) return;
       var total = this.slides.length;
-      next = ((next % total) + total) % total;   // wrap in entrambe le direzioni
+      next = ((next % total) + total) % total;
       if (next === this.index) return;
       if (dir === undefined) dir = this.shortestDir(this.index, next, total);
       var prevIndex = this.index;
       this.index = next;
       this.paintMeta();
       this.paintTransition(prevIndex, next, dir);
-      if (userAction) this.autoplay();           // riavvia il timer dopo un'interazione
+      if (userAction) this.autoplay();
     },
 
-    /* primo render, senza animazione */
     paintInitial: function () {
       var i = this.index;
       this.slides.forEach(function (slide, n) {
@@ -95,7 +86,6 @@
       this.paintMeta();
     },
 
-    /* sfondo, card attiva ed etichette laterali */
     paintMeta: function () {
       var i = this.index;
       var total = this.slides.length;
@@ -110,7 +100,6 @@
       if (this.edgeR) this.edgeR.textContent = next.dataset.label || "";
     },
 
-    /* crossfade direzionale fra la slide uscente e quella entrante */
     paintTransition: function (prevIndex, nextIndex, dir) {
       var oldEl = this.slides[prevIndex];
       var newEl = this.slides[nextIndex];
@@ -141,9 +130,6 @@
     }
   };
 
-
-  /* ═══════════ STATUS SERVER LIVE ═══════════ */
-
   var Status = {
     init: function () {
       this.root    = $("[data-status]");
@@ -164,7 +150,6 @@
       var self = this;
       setInterval(function () { self.refresh(); }, srv.refreshMs || 60000);
 
-      /* ricontrolla quando si torna sulla scheda */
       document.addEventListener("visibilitychange", function () {
         if (!document.hidden) self.refresh();
       });
@@ -184,7 +169,6 @@
         });
     },
 
-    /* metodo consigliato: API pubblica cfx.re */
     fetchCfx: function () {
       var srv = CFG.server || {};
       if (!srv.cfxCode) return Promise.reject();
@@ -200,7 +184,6 @@
         });
     },
 
-    /* fallback: endpoint dynamic.json esposto dal server stesso */
     fetchDirect: function () {
       var srv = CFG.server || {};
       if (!srv.host) return Promise.reject();
@@ -243,7 +226,6 @@
       this.elLabel.textContent = "Avventurieri nel regno";
     },
 
-    /* conteggio animato */
     countTo: function (el, target) {
       var from = parseInt(el.textContent, 10);
       if (isNaN(from) || reduceMotion) { el.textContent = target; return; }
@@ -261,9 +243,6 @@
       requestAnimationFrame(frame);
     }
   };
-
-
-  /* ═══════════ IL MONDO (carosello luoghi) ═══════════ */
 
   var World = {
     init: function () {
@@ -312,7 +291,6 @@
       this.setActive(n);
     },
 
-    /* individua la card più vicina al centro del track durante lo scroll libero */
     syncFromScroll: function () {
       var center = this.track.scrollLeft + this.track.clientWidth / 2;
       var closest = 0, min = Infinity;
@@ -330,9 +308,6 @@
       if (this.dots) this.dots.forEach(function (dot, i) { dot.classList.toggle("is-active", i === n); });
     }
   };
-
-
-  /* ═══════════ PAGINA LUOGO (tab attività/ambiente/fauna/...) ═══════════ */
 
   var LocationTabs = {
     init: function () {
@@ -354,9 +329,6 @@
     }
   };
 
-
-  /* ═══════════ LEGGENDE (reveal a macchina da scrivere) ═══════════ */
-
   var Legends = {
     timer: null,
 
@@ -375,11 +347,9 @@
         });
       });
 
-      /* mostra da subito la prima leggenda invece di un riquadro vuoto */
       this.type(this.btns[0].dataset.legend);
     },
 
-    /* rivela il testo della leggenda un carattere alla volta */
     type: function (key) {
       var source = $('[data-legend-source="' + key + '"]');
       if (!source) return;
@@ -422,9 +392,6 @@
     }
   };
 
-
-  /* ═══════════ MAPPA (puntini interattivi) ═══════════ */
-
   var MapPins = {
     init: function () {
       this.pins = $$("[data-map-pin]");
@@ -442,7 +409,6 @@
       });
     },
 
-    /* dissolvenza in uscita, cambio contenuto, dissolvenza in entrata */
     show: function (key) {
       var source = $('[data-map-source="' + key + '"]');
       if (!source) return;
@@ -463,9 +429,6 @@
       }, 320);
     }
   };
-
-
-  /* ═══════════ FAQ ═══════════ */
 
   var Faq = {
     init: function () {
@@ -495,9 +458,6 @@
     }
   };
 
-
-  /* ═══════════ REVEAL ALLO SCROLL ═══════════ */
-
   var Reveal = {
     init: function () {
       var items = $$("[data-reveal]");
@@ -517,9 +477,6 @@
     }
   };
 
-
-  /* ═══════════ CONNESSIONE AL SERVER ═══════════ */
-
   function connectUrl() {
     var srv = CFG.server || {};
     if (srv.cfxCode) return "fivem://connect/" + srv.cfxCode;
@@ -534,7 +491,7 @@
         el.setAttribute("href", url);
         return;
       }
-      /* niente server configurato → manda su Discord se disponibile */
+
       var dc = (CFG.links || {}).discord;
       if (dc && dc !== "https://discord.gg/") {
         el.setAttribute("href", dc);
@@ -562,9 +519,6 @@
       }
     });
   }
-
-
-  /* ═══════════ MENU MOBILE ═══════════ */
 
   var Drawer = {
     init: function () {
@@ -600,9 +554,6 @@
       }
     }
   };
-
-
-  /* ═══════════ MODALE TRAILER ═══════════ */
 
   var Modal = {
     init: function () {
@@ -643,9 +594,6 @@
     }
   };
 
-
-  /* ═══════════ PARALLASSE LEGGERA SULLO SFONDO ═══════════ */
-
   function parallax() {
     var stage = $("#stage");
     if (!stage || reduceMotion || window.matchMedia("(pointer: coarse)").matches) return;
@@ -661,9 +609,6 @@
       });
     });
   }
-
-
-  /* ═══════════ AVVIO ═══════════ */
 
   document.addEventListener("DOMContentLoaded", function () {
     Slider.init();
