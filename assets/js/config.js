@@ -17,7 +17,7 @@ window.DIVISION_CONFIG = {
   },
 
   links: {
-    discord: "https://discord.gg/XmrfFVNve",
+    discord: "https://discord.gg/divisionroleplay",
     youtube: "",
     tiktok:  "https://www.tiktok.com/@divisionrpofficial"
   },
