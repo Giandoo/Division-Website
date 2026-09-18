@@ -411,6 +411,22 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 
 .location__inner{ max-width:1220px; margin:0 auto; }
 
+.location__disclaimer{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:calc(var(--dock-h) + 14px);
+  z-index:30;
+  width:min(560px, calc(100% - 48px));
+  margin:0 auto;
+  text-align:center;
+  font-size:10px;
+  line-height:1.6;
+  letter-spacing:.02em;
+  color:rgba(255,255,255,.28);
+  pointer-events:none;
+}
+
 .location__tabs{
   display:flex;
   flex-wrap:wrap;
