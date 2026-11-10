@@ -1,70 +1,55 @@
-# Division — sito v2
+# Division — sito v2 (React)
 
-Landing single-screen per il server FiveM **Division** (fantasy roleplay).
-HTML + CSS + JS puro: nessuna build, nessuna dipendenza, nessun `npm install`.
+Sito del server FiveM **Division**, roleplay ambientato nel 2077, fatto con React + Vite.
+Animazioni con framer-motion, scroll fluido con Lenis.
+
+L'immagine dell'hero è `public/assets/img/hero/hero-1.jpg`, mostrata in bicromia
+rossa: per cambiarla sostituisci il file (stesso nome) o cambia `image` in
+`src/pages/Home.jsx`.
 
 ## Avviare in locale
 
-Basta aprire `index.html` nel browser. Per far funzionare lo status live
-(le richieste `fetch` sono bloccate su `file://`) serve un mini server:
-
 ```bash
-npx serve .
-# oppure
-python -m http.server 8080
+npm install      # solo la prima volta
+npm run dev      # sviluppo con ricarica automatica → http://localhost:5173
+npm run build    # build di produzione in dist/
+npm run preview  # prova la build → http://localhost:4173
 ```
 
-## Collegare il tuo server
+## Link e server
 
-Apri [`assets/js/config.js`](assets/js/config.js) e compila:
+Si cambiano in un solo posto: [`public/assets/js/config.js`](public/assets/js/config.js).
 
-```js
-server: {
-  cfxCode: "ab12cd",   // dal link https://cfx.re/join/ab12cd
-  maxSlots: 300
-},
-links: {
-  discord: "https://discord.gg/iltuoinvito"
-}
-```
+- `links.discord`, `links.tiktok`, `links.youtube`: YouTube compare solo se compilato.
+- `server.cfxCode` (dal link `https://cfx.re/join/xxxxxx`) attiva il pulsante
+  "Gioca ora" che apre FiveM. Finché è vuoto, "Gioca ora" porta al Discord.
 
-Il `cfxCode` è il metodo consigliato: funziona in HTTPS e non espone l'IP.
-In alternativa puoi valorizzare `host` + `port`, ma se il sito è servito in
-HTTPS e il server risponde in HTTP il browser blocca la richiesta
-(*mixed content*) e lo status resta su "offline".
+## Testi
 
-Da quel codice vengono generati automaticamente:
-- il conteggio giocatori live nella barra in basso (aggiornato ogni 60s);
-- il link `fivem://connect/...` su tutti i pulsanti "Gioca ora" / "Inizia il viaggio";
-- il link del pulsante **Discord** in navbar, menu mobile e footer (`links.discord`)
-  — resta nascosto finché non lo compili con un invito vero.
-
-## Immagini
-
-Vedi [`assets/img/LEGGIMI.md`](assets/img/LEGGIMI.md). Il sito è già
-presentabile senza: ogni slot ha un gradient di fallback sotto.
+Storia di Division (wipe 1, 2, 3) e FAQ: [`src/data/content.js`](src/data/content.js).
 
 ## Struttura
 
 ```
-index.html              markup e testi delle slide
-assets/css/style.css    tutto lo stile (variabili in :root)
-assets/js/config.js     ← l'unico file da compilare
-assets/js/main.js       slider, status live, modale, menu
-assets/img/             immagini (vedi LEGGIMI.md)
+index.html                  entry di Vite (meta, font, config.js)
+src/App.jsx                 intro, scroll fluido, sipario
+src/pages/Home.jsx          ordine delle sezioni
+src/sections/               Hero, Statement, Story (storia), Year (2077), Join, Faq, Social
+src/components/             Nav, Footer, Btn, Scramble, SplitText, Arcs, Dial, GridLines, Icons…
+src/data/content.js         testi: storia e FAQ
+src/styles/global.css       token (colori/font in :root), griglia, nav, pulsanti, footer
+src/styles/sections.css     stile delle sezioni
+src/lib/motion.js           easing e interruttore RESPECT_REDUCED_MOTION
+public/                     file serviti così come sono (logo, immagine hero, config.js)
+assets/img/originali/       sorgenti grandi, non pubblicate (ignorate da git)
+assets/img/archivio-fantasy/ immagini della vecchia ambientazione, solo archivio locale
 ```
-
-## Personalizzare
-
-- **Colori**: le variabili sono in cima a `style.css`, blocco `:root`.
-- **Testi**: direttamente in `index.html`, dentro le `<section class="slide">`.
-- **Slide**: duplica un `.bg` e la sua `<section class="slide">` — lo slider
-  conta le slide presenti e si adatta.
 
 ## Note
 
-- Slider: frecce, frecce tastiera, swipe touch, autoplay 8s (pausa su
-  interazione), loop in entrambe le direzioni.
-- Rispetta `prefers-reduced-motion`: animazioni e parallasse disattivate.
-- Testato responsive fino a 360px; sotto i 1024px le card scorrono
-  orizzontalmente con snap.
+- Font: Orbitron (wordmark), Rajdhani (titoli e interfaccia), Poppins (testo).
+- Le colonne del layout (`.cols4`) sono allineate alle linee verticali della griglia.
+- `RESPECT_REDUCED_MOTION` in `src/lib/motion.js` è `false`: le animazioni partono
+  anche se il sistema operativo ha "riduci animazioni" attivo.
+- Su Vercel: `vercel.json` imposta build Vite, cartella `dist/` e rimanda ogni
+  indirizzo a `index.html` (le vecchie pagine tornano alla home).

@@ -1,1 +1,8 @@
 assets/img/originali/
+# Screenshot originali pesanti: il sito usa le versioni ottimizzate in public/
+assets/img/aggiornamento/
+# Immagini della vecchia ambientazione, tenute solo come archivio locale
+assets/img/archivio-fantasy/
+
+node_modules/
+dist/

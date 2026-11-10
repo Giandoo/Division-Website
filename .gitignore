@@ -1,5 +1,9 @@
 # Raw upload sources (non processati, non usati dal sito live)
 assets/img/originali/
+# Screenshot originali pesanti: il sito usa le versioni ottimizzate in public/
+assets/img/aggiornamento/
+# Immagini della vecchia ambientazione, tenute solo come archivio locale
+assets/img/archivio-fantasy/
 
 # OS / editor junk
 .DS_Store
@@ -7,3 +11,7 @@ Thumbs.db
 
 .vercel
 .env*
+
+# Build
+node_modules/
+dist/
