@@ -251,6 +251,42 @@
 .trailer__corner--br { right: 14px; bottom: 14px; border-right-width: 2px; border-bottom-width: 2px; }
 .trailer__hatch { height: 90px; width: calc((100% - 2 * var(--pad)) * 0.25); margin-left: var(--pad); transform-origin: top center; }
 
+/* ---------- Album ---------- */
+.album { position: relative; background: var(--panel); padding: clamp(110px, 15vh, 180px) 0 clamp(90px, 12vh, 150px); }
+.album__head { padding: 0 calc(var(--pad) + 28px) clamp(40px, 6vh, 70px); }
+.album__title { font-size: clamp(40px, 5.4vw, 84px); line-height: 0.95; }
+.album__grid { display: flex; gap: 8px; align-items: flex-start; padding: 0 var(--pad); }
+.album__col { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+.album__tile { position: relative; display: block; width: 100%; overflow: hidden; background: #0d0d0d; cursor: pointer; text-align: left; }
+.album__tile img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05) brightness(1.15); transform: scale(1.02); transition: transform 1.8s var(--ease); }
+.album__duo { position: absolute; inset: 0; background: #c22a35; mix-blend-mode: multiply; opacity: 0.88; transition: opacity 1.3s var(--ease); }
+.album__tile::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; height: 3px; background: var(--red); transform: scaleX(0); transform-origin: right center; transition: transform 1s var(--ease-io); }
+.album__tile:hover img, .album__tile:focus-visible img { transform: scale(1.09); }
+.album__tile:hover .album__duo, .album__tile:focus-visible .album__duo { opacity: 0.42; }
+.album__tile:hover::after, .album__tile:focus-visible::after { transform: scaleX(1); transform-origin: left center; }
+.album__num { position: absolute; left: 12px; bottom: 10px; z-index: 2; font-family: var(--f-word); font-size: 12px; letter-spacing: 0.1em; opacity: 0; transform: translateY(6px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); }
+.album__tile:hover .album__num, .album__tile:focus-visible .album__num { opacity: 1; transform: none; }
+.album__more { display: flex; justify-content: center; padding-top: clamp(40px, 6vh, 64px); }
+
+/* foto aperta */
+.lb { position: fixed; inset: 0; z-index: 230; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; padding: 86px var(--pad) 28px; background: rgba(10, 10, 10, 0.97); }
+.lb__stage { display: grid; place-items: center; width: 100%; flex: 1 1 auto; min-height: 0; }
+.lb__fig { position: relative; display: grid; margin: 0; max-width: min(1500px, 100%); max-height: 100%; cursor: grab; }
+.lb__fig:active { cursor: grabbing; }
+.lb__fig img { display: block; max-width: 100%; max-height: calc(100vh - 220px); max-height: calc(100svh - 220px); width: auto; height: auto; object-fit: contain; filter: grayscale(1) contrast(1.05) brightness(1.1); user-select: none; }
+.lb__duo { position: absolute; inset: 0; background: #c22a35; mix-blend-mode: multiply; opacity: 0.5; pointer-events: none; }
+.lb__bar { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: min(1500px, 100%); flex: 0 0 auto; }
+.lb__count { font-family: var(--f-word); font-weight: 500; font-size: 14px; letter-spacing: 0.14em; }
+.lb__count i { font-style: normal; color: var(--red); margin: 0 4px; }
+.lb__nav { display: flex; gap: 8px; }
+.lb__btn, .lb__close { position: relative; display: grid; place-items: center; width: 52px; height: 52px; overflow: hidden; border: 1px solid var(--line-2); color: var(--ink); isolation: isolate; }
+.lb__btn::before, .lb__close::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--red); transform: scaleY(0); transform-origin: bottom center; transition: transform 0.9s var(--ease-io); }
+.lb__btn:hover::before, .lb__close:hover::before { transform: scaleY(1); }
+.lb__btn svg { width: 20px; height: 20px; }
+.lb__close { position: absolute; top: 18px; right: var(--pad); }
+.lb__close span::before, .lb__close span::after { content: ""; position: absolute; left: 50%; top: 50%; width: 20px; height: 2px; margin: -1px 0 0 -10px; background: currentColor; transform: rotate(45deg); }
+.lb__close span::after { transform: rotate(-45deg); }
+
 /* ---------- Entra in città ---------- */
 .join { position: relative; overflow: hidden; display: flex; align-items: center; min-height: 100vh; padding: 140px 0; isolation: isolate; }
 .join__bg { position: absolute; left: 0; top: -9%; z-index: -3; width: 100%; height: 118%; object-fit: cover; filter: grayscale(1) contrast(1.1) brightness(1.35); }

@@ -5,6 +5,7 @@ import Statement from '../sections/Statement.jsx';
 import Story from '../sections/Story.jsx';
 import Year from '../sections/Year.jsx';
 import Trailer from '../sections/Trailer.jsx';
+import Album from '../sections/Album.jsx';
 import Join from '../sections/Join.jsx';
 import Faq from '../sections/Faq.jsx';
 import Social from '../sections/Social.jsx';
@@ -30,7 +31,7 @@ export default function Home() {
   const scrollTo = useScrollTo();
 
   useEffect(() => {
-    document.title = 'Division RP';
+    document.title = 'Division Roleplay';
   }, []);
 
   // Apertura con un link tipo /#faq o /#storia: aspetta l'ingresso e poi scorre lì.
@@ -45,9 +46,9 @@ export default function Home() {
       <main>
         <Hero word="Division" slides={HERO_SLIDES} />
         <Statement
-          caption="Anno 2077"
+          caption="Anno 2070"
           parts={[
-            { t: 'Division è un server FiveM roleplay ambientato nel 2077.', dim: true },
+            { t: 'Division è un server FiveM roleplay ambientato nel 2070.', dim: true },
             { t: 'Crea il tuo personaggio, fai le tue scelte e vivine le conseguenze.' },
           ]}
         >
@@ -58,6 +59,7 @@ export default function Home() {
         <Story />
         <Year />
         <Trailer />
+        <Album />
         <Join />
         <Faq />
         <Social />

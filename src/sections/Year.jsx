@@ -5,14 +5,14 @@ import Dial from '../components/Dial.jsx';
 import SplitText from '../components/SplitText.jsx';
 import { clamp } from '../lib/motion.js';
 
-const TARGET = 2077;
+const TARGET = 2070;
 // Le foto che scorrono dentro il cerchio mentre l'anno corre.
 const SHOTS = ['vicolo', 'incendio', 'auto'];
 const easeOut = (t) => 1 - Math.pow(1 - t, 3);
 const easeInOut = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
 /**
- * Sezione "fissata": mentre scorri l'anno corre da oggi al 2077 e, dietro al
+ * Sezione "fissata": mentre scorri l'anno corre da oggi al 2070 e, dietro al
  * numero, si apre un cerchio con le foto del gioco in bicromia rossa che si
  * susseguono. Poi il cerchio si allarga fino a riempire lo schermo.
  */

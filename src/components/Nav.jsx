@@ -60,6 +60,7 @@ function MobileMenu({ onClose }) {
     { to: '/', label: 'Home' },
     { hash: '#storia', label: 'Storia' },
     { hash: '#trailer', label: 'Trailer' },
+    { hash: '#galleria', label: 'Album' },
     { hash: '#entra', label: 'Come entrare' },
     { hash: '#faq', label: 'FAQ' },
   ];

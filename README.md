@@ -1,6 +1,6 @@
 # Division — sito v2 (React)
 
-Sito del server FiveM **Division**, roleplay ambientato nel 2077, fatto con React + Vite.
+Sito del server FiveM **Division**, roleplay ambientato nel 2070, fatto con React + Vite.
 Animazioni con framer-motion, scroll fluido con Lenis.
 
 L'immagine dell'hero è `public/assets/img/hero/hero-1.jpg`, mostrata in bicromia
@@ -24,6 +24,19 @@ Si cambiano in un solo posto: [`public/assets/js/config.js`](public/assets/js/co
 - `server.cfxCode` (dal link `https://cfx.re/join/xxxxxx`) attiva il pulsante
   "Gioca ora" che apre FiveM. Finché è vuoto, "Gioca ora" porta al Discord.
 
+## Album foto
+
+Butta le foto (png, jpg o webp, anche pesanti) nella cartella `assets/img/album/`, poi:
+
+```bash
+npm run album
+```
+
+Lo script le ridimensiona in `public/assets/img/album/` e aggiorna `src/data/album.json`.
+Le foto compaiono nell'ordine dei nomi dei file (`001.png`, `002.png`…). Per toglierne una
+basta cancellarla dalla cartella e rilanciare il comando. Le originali non vengono pubblicate.
+Le foto `esempio-*.jpg` sono segnaposto: cancellale quando carichi le tue.
+
 ## Testi
 
 Storia di Division (wipe 1, 2, 3) e FAQ: [`src/data/content.js`](src/data/content.js).
@@ -34,13 +47,15 @@ Storia di Division (wipe 1, 2, 3) e FAQ: [`src/data/content.js`](src/data/conten
 index.html                  entry di Vite (meta, font, config.js)
 src/App.jsx                 intro, scroll fluido, sipario
 src/pages/Home.jsx          ordine delle sezioni
-src/sections/               Hero, Statement, Story (storia), Year (2077), Join, Faq, Social
+src/sections/               Hero, Statement, Story (storia), Year (2070), Join, Faq, Social
 src/components/             Nav, Footer, Btn, Scramble, SplitText, Arcs, Dial, GridLines, Icons…
 src/data/content.js         testi: storia e FAQ
 src/styles/global.css       token (colori/font in :root), griglia, nav, pulsanti, footer
 src/styles/sections.css     stile delle sezioni
 src/lib/motion.js           easing e interruttore RESPECT_REDUCED_MOTION
-public/                     file serviti così come sono (logo, immagine hero, config.js)
+public/                     file serviti così come sono (logo, immagini, config.js)
+scripts/album.mjs           prepara le foto dell'album (npm run album)
+assets/img/album/           foto originali dell'album, non pubblicate (ignorate da git)
 assets/img/originali/       sorgenti grandi, non pubblicate (ignorate da git)
 assets/img/archivio-fantasy/ immagini della vecchia ambientazione, solo archivio locale
 ```

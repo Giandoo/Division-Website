@@ -53,7 +53,7 @@ export default function Social() {
           <img className="social__logo" src="/assets/img/logo.png" alt="" width="52" height="52" />
           <span className="social__meta">
             <Scramble className="social__name" text="GIOCA ORA" delay={0.3 + cells.length * 0.12} />
-            <span className="social__handle">Entra nel 2077</span>
+            <span className="social__handle">Entra nel 2070</span>
           </span>
           <motion.span
             className="social__arrow"

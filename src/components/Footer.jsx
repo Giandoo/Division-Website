@@ -22,12 +22,13 @@ export default function Footer() {
           <Link to="/" className="footer__brand" aria-label="Division RP">
             <img src="/assets/img/logo.png" alt="" width="40" height="40" />
           </Link>
-          <p className="footer__claim">Roleplay su FiveM, ambientato nel 2077.</p>
+          <p className="footer__claim">Roleplay su FiveM, ambientato nel 2070.</p>
         </div>
         <nav className="footer__col" aria-label="Sito">
           <span className="t-idx">001</span>
           <Link to="/">Home</Link>
           <AnchorLink hash="#storia">Storia</AnchorLink>
+          <AnchorLink hash="#galleria">Album</AnchorLink>
           <AnchorLink hash="#entra">Come entrare</AnchorLink>
           <AnchorLink hash="#faq">FAQ</AnchorLink>
         </nav>

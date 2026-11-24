@@ -26,10 +26,10 @@ export const STORY = [
   {
     wipe: 3,
     live: true,
-    title: 'Il capitolo del 2077.',
+    title: 'Il capitolo del 2070.',
     image: '/assets/img/media/vicolo.jpg',
     text:
-      'Il terzo wipe porta Division nel 2077. Pur cambiando ambientazione, la narrazione resta unitaria: la lore di Division è un percorso continuo che collega il primo, il secondo e il terzo wipe.',
+      'Il terzo wipe porta Division nel 2070. Pur cambiando ambientazione, la narrazione resta unitaria: la lore di Division è un percorso continuo che collega il primo, il secondo e il terzo wipe.',
   },
 ];
 
@@ -48,7 +48,7 @@ export const FAQ = [
   },
   {
     q: 'Qual è l’ambientazione?',
-    a: 'Il terzo wipe di Division è ambientato nel 2077. Tutta la lore è collegata a quella dei wipe 1 e 2: la trovi, insieme al regolamento di roleplay, nel nostro Discord.',
+    a: 'Il terzo wipe di Division è ambientato nel 2070. Tutta la lore è collegata a quella dei wipe 1 e 2: la trovi, insieme al regolamento di roleplay, nel nostro Discord.',
   },
   {
     q: 'Come contatto lo staff o segnalo un problema?',
