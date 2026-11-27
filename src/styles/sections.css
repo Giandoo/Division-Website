@@ -383,6 +383,47 @@
 .faq__a { overflow: hidden; }
 .faq__a p { max-width: 700px; padding: 0 90px 32px 86px; font-size: 15px; line-height: 1.8; color: var(--gray); }
 
+/* ---------- Box anonima ---------- */
+.anon { position: relative; overflow: hidden; display: flex; align-items: center; min-height: 100vh; background: var(--bg); padding: clamp(130px, 18vh, 190px) 0; isolation: isolate; }
+.anon .cols4 { width: 100%; }
+.anon__backdrop { position: absolute; inset: 0; z-index: -1; display: flex; flex-direction: column; justify-content: center; gap: 12px; overflow: hidden; pointer-events: none; }
+.anon__backdrop::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, var(--bg), rgba(10, 10, 10, 0.45) 28%, rgba(10, 10, 10, 0.45) 72%, var(--bg)); }
+.anon__row { display: flex; flex: 0 0 auto; width: max-content; animation: anon-slide 80s linear infinite paused; will-change: transform; }
+.anon__backdrop.is-playing .anon__row { animation-play-state: running; }
+.anon__row:nth-child(2) { animation-direction: reverse; animation-duration: 100s; }
+.anon__row img { width: clamp(260px, 28vw, 440px); height: auto; aspect-ratio: 16 / 9; margin-right: 12px; max-width: none; object-fit: cover; background: var(--panel); }
+@keyframes anon-slide { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
+.anon .cols4 { align-items: start; }
+.anon__head { display: flex; flex-direction: column; gap: 26px; padding: 0 28px; }
+.anon__title { font-size: clamp(36px, 4vw, 60px); line-height: 0.95; }
+.anon__note { max-width: 270px; font-size: 14px; color: #c9c3be; }
+.anon__box { grid-column: 2 / 5; margin-right: 28px; background: rgba(20, 20, 20, 0.94); }
+.anon__label { display: block; padding: 24px 30px 0; }
+.anon__text { display: block; width: 100%; min-height: 220px; padding: 14px 30px 24px; resize: vertical; background: transparent; border: 0; color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.8; caret-color: var(--red); }
+.anon__text::placeholder { color: #6d6762; }
+.anon__text:focus-visible { outline: none; }
+.anon__trap { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.anon__error { padding: 0 30px; font-size: 13px; color: #ff6b74; }
+.anon__error:not(:empty) { padding-bottom: 14px; }
+.anon__foot { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; padding: 14px 14px 14px 30px; border-top: 1px solid var(--line-2); transition: border-color 0.6s var(--ease); }
+.anon__box:focus-within .anon__foot { border-color: var(--red); }
+.anon__privacy { flex: 1 1 240px; font-size: 13px; color: var(--gray); }
+.anon__count { font-family: var(--f-head); font-size: 13px; color: var(--gray); }
+.anon__foot .btn { min-width: 160px; }
+.anon__foot .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.anon__done { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 18px; min-height: 340px; padding: 36px 30px; color: var(--gray); }
+.anon__done-title { font-size: 34px; color: var(--ink); }
+@media (max-width: 900px) {
+  .anon__head { grid-column: 1 / -1; padding: 0 16px 40px; }
+  .anon__box { grid-column: 1 / -1; margin: 0 16px; }
+}
+@media (max-width: 600px) {
+  .anon__label, .anon__error { padding-left: 20px; padding-right: 20px; }
+  .anon__text { padding-left: 20px; padding-right: 20px; }
+  .anon__foot { padding-left: 20px; }
+  .anon__foot .btn { width: 100%; }
+}
+
 /* ---------- Social ---------- */
 .social { position: relative; background: var(--bg); padding-top: clamp(130px, 18vh, 190px); padding-bottom: 40px; }
 .social__head { padding: 0 calc(var(--pad) + 20px) 80px; text-align: center; }

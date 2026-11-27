@@ -63,6 +63,7 @@ function MobileMenu({ onClose }) {
     { hash: '#galleria', label: 'Album' },
     { hash: '#entra', label: 'Come entrare' },
     { hash: '#faq', label: 'FAQ' },
+    { hash: '#anonimo', label: 'Box anonima' },
   ];
   return (
     <motion.div

@@ -8,6 +8,7 @@ import Trailer from '../sections/Trailer.jsx';
 import Album from '../sections/Album.jsx';
 import Join from '../sections/Join.jsx';
 import Faq from '../sections/Faq.jsx';
+import Anonymous from '../sections/Anonymous.jsx';
 import Social from '../sections/Social.jsx';
 import Footer from '../components/Footer.jsx';
 import Btn from '../components/Btn.jsx';
@@ -62,6 +63,7 @@ export default function Home() {
         <Album />
         <Join />
         <Faq />
+        <Anonymous />
         <Social />
       </main>
       <Footer />

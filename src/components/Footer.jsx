@@ -31,6 +31,7 @@ export default function Footer() {
           <AnchorLink hash="#galleria">Album</AnchorLink>
           <AnchorLink hash="#entra">Come entrare</AnchorLink>
           <AnchorLink hash="#faq">FAQ</AnchorLink>
+          <AnchorLink hash="#anonimo">Box anonima</AnchorLink>
         </nav>
         <nav className="footer__col" aria-label="Canali">
           <span className="t-idx">002</span>

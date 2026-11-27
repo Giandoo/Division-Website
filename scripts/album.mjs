@@ -54,6 +54,14 @@ for (const [i, file] of files.entries()) {
     .jpeg({ quality: 76, mozjpeg: true })
     .toFile(path.join(OUT, `${id}-t.jpg`));
 
+  // Versione piccola, già sfocata e scurita, per lo sfondo della box anonima.
+  await sharp(path.join(OUT, `${id}-t.jpg`))
+    .resize({ width: 480, withoutEnlargement: true })
+    .blur(2)
+    .modulate({ brightness: 0.65, saturation: 0.65 })
+    .jpeg({ quality: 68, mozjpeg: true })
+    .toFile(path.join(OUT, `${id}-b.jpg`));
+
   list.push({ id, w: big.width, h: big.height });
   process.stdout.write(`\r${i + 1}/${files.length}  ${file}                    `);
 }

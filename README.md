@@ -24,6 +24,20 @@ Si cambiano in un solo posto: [`public/assets/js/config.js`](public/assets/js/co
 - `server.cfxCode` (dal link `https://cfx.re/join/xxxxxx`) attiva il pulsante
   "Gioca ora" che apre FiveM. Finché è vuoto, "Gioca ora" porta al Discord.
 
+## Box anonima
+
+La sezione "Canale anonimo" manda i messaggi a un webhook Discord tramite `api/anonimo.js`.
+Il link del webhook è segreto: non va mai scritto nel codice.
+
+1. Su Discord crea un canale privato, visibile solo a te: Modifica canale → Integrazioni →
+   Webhook → Nuovo webhook → Copia URL webhook.
+2. In locale: crea il file `.env.local` (ignorato da git) con
+   `DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/...` e riavvia `npm run dev`.
+3. Online: su Vercel → Settings → Environment Variables aggiungi `DISCORD_WEBHOOK_URL`,
+   poi rifai il deploy.
+
+`npm run preview` non esegue la funzione: la box si prova con `npm run dev`.
+
 ## Album foto
 
 Butta le foto (png, jpg o webp, anche pesanti) nella cartella `assets/img/album/`, poi:
